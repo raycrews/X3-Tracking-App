@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.x3workout.tracker</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>X3 Workout Tracker</name>
+  <summary>Track X3 workouts in a CSV-backed desktop app</summary>
+  <description>
+    <p>X3 Workout Tracker records push and pull workouts with reps, band type, notes, editable history, themes, and a user-selected CSV data file.</p>
+    <p>The CSV file can live in a local folder, synced cloud folder, or NAS-mounted location.</p>
+  </description>
+  <launchable type="desktop-id">com.x3workout.tracker.desktop</launchable>
+  <categories>
+    <category>Utility</category>
+    <category>Sports</category>
+  </categories>
+  <releases>
+    <release version="0.1.0" date="2026-06-03" />
+  </releases>
+</component>

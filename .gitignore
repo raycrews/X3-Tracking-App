@@ -1,0 +1,29 @@
+node_modules/
+dist/
+src-tauri/target/
+app/node_modules/
+app/dist/
+app/src-tauri/target/
+
+*.csv.tmp
+
+# Platform build artifacts belong in GitHub Releases, not source control.
+*.exe
+*.msi
+*.dmg
+*.app/
+*.flatpak
+*.deb
+*.rpm
+*.AppImage
+
+# Flatpak local build output.
+flatpak-build/
+flatpak-repo/
+flatpak/.flatpak-builder/
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

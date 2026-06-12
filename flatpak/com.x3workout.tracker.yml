@@ -1,0 +1,51 @@
+id: com.x3workout.tracker
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: x3-workout-tracker
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+  # The app reads/writes a user-selected CSV file. These permissions keep common
+  # sync folders, NAS mounts, and removable-media mounts usable from Flatpak.
+  - --filesystem=home
+  - --filesystem=/mnt
+  - --filesystem=/media
+  - --filesystem=/run/media
+
+modules:
+  - name: x3-workout-tracker
+    buildsystem: simple
+    sources:
+      - type: file
+        path: ../app/src-tauri/target/release/bundle/deb/X3 Workout Tracker_0.1.0_amd64.deb
+        only-arches: [x86_64]
+      - type: file
+        path: com.x3workout.tracker.desktop
+      - type: file
+        path: com.x3workout.tracker.metainfo.xml
+      - type: file
+        path: ../app/src-tauri/icons/32x32.png
+        dest-filename: icon-32.png
+      - type: file
+        path: ../app/src-tauri/icons/64x64.png
+        dest-filename: icon-64.png
+      - type: file
+        path: ../app/src-tauri/icons/128x128.png
+        dest-filename: icon-128.png
+      - type: file
+        path: ../app/src-tauri/icons/icon.png
+        dest-filename: icon-512.png
+    build-commands:
+      - ar -x "X3 Workout Tracker_0.1.0_amd64.deb"
+      - tar -xf data.tar.*
+      - install -Dm755 usr/bin/x3-workout-tracker /app/bin/x3-workout-tracker
+      - install -Dm644 com.x3workout.tracker.desktop /app/share/applications/com.x3workout.tracker.desktop
+      - install -Dm644 com.x3workout.tracker.metainfo.xml /app/share/metainfo/com.x3workout.tracker.metainfo.xml
+      - install -Dm644 icon-32.png /app/share/icons/hicolor/32x32/apps/com.x3workout.tracker.png
+      - install -Dm644 icon-64.png /app/share/icons/hicolor/64x64/apps/com.x3workout.tracker.png
+      - install -Dm644 icon-128.png /app/share/icons/hicolor/128x128/apps/com.x3workout.tracker.png
+      - install -Dm644 icon-512.png /app/share/icons/hicolor/512x512/apps/com.x3workout.tracker.png

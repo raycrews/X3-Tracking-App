@@ -1,0 +1,9 @@
+﻿[Desktop Entry]
+Type=Application
+Name=X3 Workout Tracker
+Comment=Track X3 push and pull workouts with CSV-backed storage
+Exec=x3-workout-tracker
+Icon=com.x3workout.tracker
+Terminal=false
+Categories=Utility;Sports;
+StartupNotify=true
